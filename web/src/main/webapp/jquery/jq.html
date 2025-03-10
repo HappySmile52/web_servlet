@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Jquery 사용법</title>
+<!-- jQuery 엔진 로드 -->
+<script src="./jquery.js"></script>
+<script>
+// $(document).ready(function(){
+// $(()=>{
+$(function(){
+	$("#btn").click(function(){	// id 속성으로 이벤트 핸들링
+		console.log("id 테스트!!");
+	});
+	
+	$(".btn").click(function(){	// class 속성으로 이벤트 핸들링
+		console.log("class 테스트!!");
+	});
+	
+	$("#btn2").click(function(){
+		// val() = value
+	
+		/*
+		// 사용자가 입력한 값을 가져오는 역할
+		var $m = $("#mid").val();
+		console.log($m);
+		*/
+		
+		/*
+		if(frm.mid.value == ""){
+			alert("아이디를 입력하세요!");
+		}
+		*/
+		
+		// $("#mid").val("홍길동");	// 해당 오브젝트에 값을 이관
+		
+		/*
+		var $m = $("#mid").val();
+		if($m == ""){
+			alert("아이디를 입력하세요!");
+			$("#mid").focus();
+		}
+		else{
+			
+		}
+		*/
+	});
+	
+	// click, submit, change
+	$("#btn3").click(function(){
+		$abc();
+		abc();
+		kkk();
+	});
+	
+	$abc = function(){	// 일반 jquery 함수
+		console.log("abc");
+	}
+	function kkk(){
+		abc();
+		console.log("kkk함수 입니다.");
+	}
+});
+
+function abc(){	// javascript 함수
+	console.log("Test");
+}
+function zzz(){
+	$abc();
+	// kkk();	// jquery 안에 js함수를 호출할 수 없음
+}
+
+</script>
+</head>
+<body>
+<input type="button" value="클릭!!" id="btn"><br>
+<input type="button" value="클릭!!" class="btn">
+<br><br><br>
+<form id="frm">
+<input type="text" name="mid" id="mid">
+<input type="button" value="중복체크" id="btn2">
+<br><br><br>
+<input type="button" value="핸들링" id="btn3">
+<input type="button" value="핸들링" onclick="zzz()">
+</form>
+</body>
+</html>
